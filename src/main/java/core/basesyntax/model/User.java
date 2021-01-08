@@ -1,15 +1,12 @@
 package core.basesyntax.model;
 
-import java.util.List;
-
 public class User {
-
     private String name;
-    private List<Bet> bets;
+    private int age;
 
-    public User(String name, List<Bet> bets) {
+    public User(String name, int age) {
         this.name = name;
-        this.bets = bets;
+        this.age = age;
     }
 
     public String getName() {
@@ -20,19 +17,19 @@ public class User {
         this.name = name;
     }
 
-    public List<Bet> getBets() {
-        return bets;
+    public int getAge() {
+        return age;
     }
 
-    public void setBets(List<Bet> bets) {
-        this.bets = bets;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
     public String toString() {
         return "User{"
                 + "name='" + name + '\''
-                + ", bets=" + bets
+                + "age='" + age + '\''
                 + '}';
     }
 }

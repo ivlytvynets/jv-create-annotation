@@ -1,7 +1,6 @@
 package core.basesyntax.model;
 
 public class Bet {
-
     private int value;
     private double risk;
 
