@@ -20,8 +20,7 @@ public class Injector {
                 field.setAccessible(true);
                 if (field.getType().equals(BetDao.class)) {
                     field.set(instance, Factory.getBetDao());
-                }
-                if (field.getType().equals(UserDao.class)) {
+                } else if (field.getType().equals(UserDao.class)) {
                     field.set(instance, Factory.getUserDao());
                 } else {
                     throw new AnnotationException("Exception was thrown in Injector");
