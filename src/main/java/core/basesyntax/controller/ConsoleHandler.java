@@ -14,6 +14,7 @@ public class ConsoleHandler {
 
     public void handle() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter value and risk for your bet");
         while (true) {
             String command = scanner.nextLine();
             if (command.equalsIgnoreCase("q")) {
