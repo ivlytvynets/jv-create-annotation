@@ -12,17 +12,16 @@ public class Injector {
     public static Object getInstance(Class clazz) throws NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
         Constructor constructor = clazz.getDeclaredConstructor();
-        constructor.newInstance();
         Object instance = constructor.newInstance();
 
         Field[] declaredFields = clazz.getDeclaredFields();
         for (Field field : declaredFields) {
             if (field.getAnnotation(Inject.class) != null) {
                 field.setAccessible(true);
-                if (field.getClass().equals(BetDao.class)) {
+                if (field.getType().equals(BetDao.class)) {
                     field.set(instance, Factory.getBetDao());
                 }
-                if (field.getClass().equals(UserDao.class)) {
+                if (field.getType().equals(UserDao.class)) {
                     field.set(instance, Factory.getUserDao());
                 } else {
                     throw new AnnotationException("Exception was thrown in Injector");
