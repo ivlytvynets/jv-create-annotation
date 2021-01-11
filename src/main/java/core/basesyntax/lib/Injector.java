@@ -1,9 +1,7 @@
 package core.basesyntax.lib;
 
 import core.basesyntax.dao.BetDao;
-import core.basesyntax.dao.BetDaoImpl;
 import core.basesyntax.dao.UserDao;
-import core.basesyntax.dao.UserDaoImpl;
 import core.basesyntax.exception.AnnotationException;
 import core.basesyntax.factory.Factory;
 import java.lang.reflect.Constructor;
@@ -27,8 +25,7 @@ public class Injector {
                 }
                 if (objectDao.getClass().isAnnotationPresent(Dao.class)) {
                     field.set(instance, objectDao);
-                }
-                else {
+                } else {
                     throw new AnnotationException("Annotation @Dao doesn't exist in class "
                             + objectDao.getClass());
                 }
